@@ -1,0 +1,55 @@
+@mixin clearfix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+#bi-stolen-widget {
+  max-width: 600px;
+  font-family: Helvetica;
+  position: relative;
+  border: 1px solid lighten(#223844, 15%);
+  border-radius: 2px;
+  ul {
+    list-style-type: none; 
+    margin: 0;
+    padding: 5px 5px 2.5em;
+    background: #223844;
+    max-height: 350px;
+    overflow: auto;
+  }
+  li {
+    @include clearfix;
+    margin: .5em 0 0;
+    padding: 6px;
+    border: 1px solid #DC7D59;
+    border-radius: 2px;
+    background: #fff;
+    // width: 49%;
+    // float: left;
+    position: relative;
+    p, h4 { width: 73% }
+    h4 { margin: 0; font-size: 19px; }
+    .stolen-thumb {
+      float: right;
+      position: relative;
+      // right: 2%;
+      width: 26%;
+      margin-left: 2%;
+      img {
+        display: block; 
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

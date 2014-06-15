@@ -1,3 +1,3 @@
 === Bike Index Stolen Bikes Widget ===
 
-Sorry, I haven't committed this yet. It will be up soon!
+Slapdash and shitty, probably don't use this yet. Definitely, actually. It's slow as hell.
