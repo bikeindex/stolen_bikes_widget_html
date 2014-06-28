@@ -1,0 +1,25 @@
+/*
+Errno::ENOENT: No such file or directory @ rb_sysopen - assets/styles/global.scss
+
+Backtrace:
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:360:in `read'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:360:in `update_stylesheet'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:201:in `each'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:235:in `watch'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/gems/sass-3.2.19/lib/sass/plugin.rb:107:in `method_missing'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/gems/sass-3.2.19/lib/sass/exec.rb:463:in `watch_or_update'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/gems/sass-3.2.19/lib/sass/exec.rb:326:in `process_result'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/gems/sass-3.2.19/lib/sass/exec.rb:41:in `parse'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/gems/sass-3.2.19/lib/sass/exec.rb:21:in `parse!'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/gems/sass-3.2.19/bin/sass:13:in `<top (required)>'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/bin/sass:23:in `load'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/bin/sass:23:in `<main>'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/bin/ruby_executable_hooks:15:in `eval'
+/Users/sleepinginisgivingin/.rvm/gems/ruby-2.1.0@dapper_app/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Errno::ENOENT: No such file or directory @ rb_sysopen - assets/styles/global.scss"; }
