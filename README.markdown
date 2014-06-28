@@ -2,7 +2,7 @@
 
 _A small, lightweight widget to put on your web-blog or tumblr or the geocities or whatever_
 
-![Stolen Bike Widget](https://github.com/sethherr/stolen_bikes_widget_html/blob/master/screenshot.png)
+![Stolen Bike Widget](https://raw.githubusercontent.com/sethherr/stolen_bikes_widget_html/gh-pages/screenshot.png)
 
 ### Alert people who visit your site to recent bike thefts!
 
