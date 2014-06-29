@@ -12,13 +12,13 @@ The easiest way to use this is to add an iFrame of this github page to your inte
 
 It's set up for Chicago (because the Windy City is delightful), but that's easily changed -
 
-Fork the repository and update the `data-location` property of the only element in [index.html](https://github.com/sethherr/stolen_bikes_widget_html/blob/master/index.html#L7).
+Fork the repository and update the `data-location` property of the only element in [index.html](https://github.com/sethherr/stolen_bikes_widget_html/blob/gh-pages/index.html#L7).
     
     <div id="bi-stolen-widget" data-location="Chicago"></div>
 
 ... and then change the location of the iFrame to be your username and repository on GitHub
 
-You can also just add the code from [index.html](https://github.com/sethherr/stolen_bikes_widget_html/blob/master/index.html) to your page if you'd prefer.
+You can also just add the code from [index.html](https://github.com/sethherr/stolen_bikes_widget_html/blob/gh-pages/index.html) to your page if you'd prefer.
 
 
 ### Tech stuff
