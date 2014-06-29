@@ -1,12 +1,10 @@
 # Recent stolen bikes widget
 
-_A small, lightweight widget to put on your web-blog or tumblr or the geocities or whatever_
+_A small, lightweight widget to put on your web-blog or tumblr or the geocities or whatever_ &mdash; __[View a live example!](http://sethherr.github.io/stolen_bikes_widget_html/example)__
 
 ![Stolen Bike Widget](https://raw.githubusercontent.com/sethherr/stolen_bikes_widget_html/gh-pages/screenshot.png)
 
 ### Alert people who visit your site to recent bike thefts!
-
-[View a live example!](http://sethherr.github.io/stolen_bikes_widget_html/example)
 
 The easiest way to use this is to add an iFrame of this github page to your interweb page:
 
