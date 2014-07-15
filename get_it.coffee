@@ -26,7 +26,7 @@ stolenBinxList = (bikes, location) ->
   widget_info = document.createElement('div')
   widget_info.setAttribute('class', 'widget-info')
   widget_info.innerHTML = """
-    Recent stolen bikes around #{location}
+    Recent thefts near you
   """
   widget.appendChild(widget_info)
 

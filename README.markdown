@@ -10,11 +10,11 @@ The easiest way to use this is to add an iFrame of this github page to your inte
 
     <iframe src="http://sethherr.github.io/stolen_bikes_widget_html" style="width: 500px; border: none;"></iframe>
 
-It's set up for Chicago (because the Windy City is delightful), but that's easily changed -
+It's set up to find bikes close to the request ip address, but that's easily changed -
 
-Fork the repository and update the `data-location` property of the only element in [index.html](https://github.com/sethherr/stolen_bikes_widget_html/blob/gh-pages/index.html#L7).
+Fork the repository and update the `data-location` property of the only element in [index.html](https://github.com/sethherr/stolen_bikes_widget_html/blob/gh-pages/index.html#L7) to be the location you want (Chicago, San Francisco, Neverland).
     
-    <div id="bi-stolen-widget" data-location="Chicago"></div>
+    <div id="bi-stolen-widget" data-location="ip"></div>
 
 ... and then change the location of the iFrame to be your username and repository on GitHub
 
