@@ -8,7 +8,7 @@ _A small, lightweight widget to put on your web-blog or tumblr or the geocities 
 
 The easiest way to use this is to add an iFrame of this github page to your interweb page:
 
-    <iframe src="http://sethherr.github.io/stolen_bikes_widget_html" style="width: 500px; border: none;"></iframe>
+    <iframe src="http://sethherr.github.io/stolen_bikes_widget_html" style="width: 100%; height: 400px; border: none;"></iframe>
 
 It's set up to find bikes close to the request ip address, but that's easily changed -
 

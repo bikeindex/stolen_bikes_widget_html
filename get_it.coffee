@@ -1,6 +1,7 @@
 stolenBinxList = (bikes, location) ->
   widget = document.getElementById('bi-stolen-widget')
   list = document.createElement('ul')
+  list.setAttribute('id', 'bistole-list')
   list.innerHTML = ''
   for bike, i in bikes
     break if i > 6
@@ -29,7 +30,8 @@ stolenBinxList = (bikes, location) ->
     Recent thefts near you
   """
   widget.appendChild(widget_info)
-
+  height = getComputedStyle(document.getElementById('bistole-body')).height
+  document.getElementById('bistole-list').style.height = height
 unableToBinxList = ->
   widget = document.getElementById('bi-stolen-widget')
   binx_error = document.createElement('div')

@@ -15,6 +15,8 @@
 
 $linkColor: #3498db;
 
+#bistole-body { margin: 0; padding: 0; }
+
 #bi-stolen-widget {
   font-family: Helvetica;
   position: relative;
@@ -25,7 +27,6 @@ $linkColor: #3498db;
     list-style-type: none; 
     margin: 0;
     padding: 5px 5px 2.5em;
-    max-height: 350px;
     overflow: auto;
   }
   li {
