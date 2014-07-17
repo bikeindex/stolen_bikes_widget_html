@@ -1,4 +1,5 @@
-stolenBinxList = (bikes, location) ->
+stolenBinxList = (bikes, setTime=null) ->
+  # If called with setTime it means we need to store bikes in localstorage
   widget = document.getElementById('bi-stolen-widget')
   list = document.createElement('ul')
   list.setAttribute('id', 'bistole-list')
@@ -32,6 +33,38 @@ stolenBinxList = (bikes, location) ->
   widget.appendChild(widget_info)
   height = getComputedStyle(document.getElementById('bistole-body')).height
   document.getElementById('bistole-list').style.height = height
+  
+  if setTime?
+    cache = 
+      bikes: bikes 
+      time: setTime
+    localStorage.setItem('binx_rstolen', JSON.stringify(cache))
+
+loadBikes = (location, bikes=[]) ->
+  console.log(bikes)
+  req = new XMLHttpRequest()
+  url = "https://bikeindex.org/api/v1/bikes?stolen=true&proximity=#{location}&proximity_radius=100"
+  req.addEventListener 'readystatechange', ->
+    if req.readyState is 4
+      successResultCodes = [200]
+      if req.status in successResultCodes
+        data = eval '(' + req.responseText + ')'
+        if data.bikes.length > 5
+          # concat existing bikes
+          bikes = bikes.concat(data.bikes)
+          time = new Date().getTime() 
+          stolenBinxList(bikes, time)
+        else 
+          console.log('we run again')
+          # load any stolen bikes if there aren't 5 of them from this location,
+          # or if we failed to get some back
+          loadBikes('', data.bikes)
+      else
+        return []
+        
+  req.open 'GET', url, false
+  req.send()
+
 unableToBinxList = ->
   widget = document.getElementById('bi-stolen-widget')
   binx_error = document.createElement('div')
@@ -56,27 +89,13 @@ do ->
   # Don't call the Index if they are and are less than 6 hours old
   cache = localStorage.getItem('binx_rstolen')
   time = new Date().getTime() 
-  if cache? and cache.length > 0
-    cache = JSON.parse(cache)
-    if cache.time? and time - cache.time < 21600000
-      is_cached = true
-      stolenBinxList(cache.bikes, location)
+  # if cache? and cache.length > 0
+  #   cache = JSON.parse(cache)
+  #   if cache.time? and time - cache.time < 21600000
+  #     is_cached = true
+  #     stolenBinxList(cache.bikes)
       
-  unless is_cached
-    req = new XMLHttpRequest()
-    url = "https://bikeindex.org/api/v1/bikes?stolen=true&proximity=#{location}&proximity_radius=100"
-    req.addEventListener 'readystatechange', ->
-      if req.readyState is 4
-        successResultCodes = [200]
-        if req.status in successResultCodes
-          data = eval '(' + req.responseText + ')'
-          stolenBinxList(data.bikes, location)
-          cache = 
-            bikes: data.bikes 
-            time: time
-          localStorage.setItem('binx_rstolen', JSON.stringify(cache))
-        else
-          unableToBinxList()
-          
-    req.open 'GET', url, false
-    req.send()
+  # unless is_cached
+  loadBikes(location)
+  
+  
