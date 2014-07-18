@@ -41,7 +41,6 @@ stolenBinxList = (bikes, setTime=null) ->
     localStorage.setItem('binx_rstolen', JSON.stringify(cache))
 
 loadBikes = (location, bikes=[]) ->
-  console.log(bikes)
   req = new XMLHttpRequest()
   url = "https://bikeindex.org/api/v1/bikes?stolen=true&proximity=#{location}&proximity_radius=100"
   req.addEventListener 'readystatechange', ->
@@ -55,7 +54,6 @@ loadBikes = (location, bikes=[]) ->
           time = new Date().getTime() 
           stolenBinxList(bikes, time)
         else 
-          console.log('we run again')
           # load any stolen bikes if there aren't 5 of them from this location,
           # or if we failed to get some back
           loadBikes('', data.bikes)
