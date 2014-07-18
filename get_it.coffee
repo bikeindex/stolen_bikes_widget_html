@@ -31,8 +31,6 @@ stolenBinxList = (bikes, setTime=null) ->
     Recent thefts near you
   """
   widget.appendChild(widget_info)
-  height = getComputedStyle(document.getElementById('bistole-body')).height
-  document.getElementById('bistole-list').style.height = height
   
   if setTime?
     cache = 
@@ -87,13 +85,13 @@ do ->
   # Don't call the Index if they are and are less than 6 hours old
   cache = localStorage.getItem('binx_rstolen')
   time = new Date().getTime() 
-  # if cache? and cache.length > 0
-  #   cache = JSON.parse(cache)
-  #   if cache.time? and time - cache.time < 21600000
-  #     is_cached = true
-  #     stolenBinxList(cache.bikes)
+  if cache? and cache.length > 0
+    cache = JSON.parse(cache)
+    if cache.time? and time - cache.time < 21600000
+      is_cached = true
+      stolenBinxList(cache.bikes)
       
-  # unless is_cached
-  loadBikes(location)
+  unless is_cached
+    loadBikes(location)
   
   
