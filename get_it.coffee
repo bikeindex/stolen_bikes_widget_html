@@ -31,6 +31,8 @@ stolenBinxList = (bikes, setTime=null) ->
     Recent thefts near you
   """
   widget.appendChild(widget_info)
+  height = getComputedStyle(document.getElementById('bistole-body')).height
+  document.getElementById('bistole-list').style.height = height
   
   if setTime?
     cache = 
