@@ -5,3 +5,12 @@
 .sass-cache
 
 lazy_compilation
+
+# Ignore bundler config
+/.bundle
+
+# Ignore rvm stuff
+.rvmrc
+.ruby-gemset
+.ruby-version
+.powenv

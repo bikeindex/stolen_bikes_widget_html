@@ -1,29 +1,10 @@
 # Recent stolen bikes widget
 
-_A small, lightweight widget to put on your web-blog or tumblr or the geocities or whatever_ &mdash; __[View a live example!](http://sethherr.github.io/stolen_bikes_widget_html/example)__
+<script src="include.js" type="text/javascript"></script>
 
-![Stolen Bike Widget](https://raw.githubusercontent.com/sethherr/stolen_bikes_widget_html/gh-pages/screenshot.png)
+#### Running it
 
-### Alert people who visit your site to recent bike thefts!
-
-The easiest way to use this is to add an iFrame of this github page to your interweb page:
-
-    <iframe src="http://sethherr.github.io/stolen_bikes_widget_html" style="width: 100%; height: 400px; border: none;"></iframe>
-
-It's set up to find bikes close to the request ip address, but that's easily changed -
-
-Fork the repository and update the `data-location` property of the only element in [index.html](https://github.com/sethherr/stolen_bikes_widget_html/blob/gh-pages/index.html#L7) to be the location you want (Chicago, San Francisco, Neverland).
-    
-    <div id="bi-stolen-widget" data-location="ip"></div>
-
-... and then change the location of the iFrame to be your username and repository on GitHub
-
-You can also just add the code from [index.html](https://github.com/sethherr/stolen_bikes_widget_html/blob/gh-pages/index.html) to your page if you'd prefer.
-
-
-### Tech stuff
-
-I don't know if people actually want this, but since the Bike Index has a [WordPress plugin](https://github.com/purcebr/bike-index-listings) it seemed neglectful to not offer one for people who aren't on WP.
+Locally we use [rerun](https://github.com/alexch/rerun) to restart the app on changes. Launch the app in development mode with `rerun 'rackup'`. You can run the tests with `rerun 'rake spec'` (sometimes this breaks and infinitely reloops. Srys.)
 
 This: 
 
