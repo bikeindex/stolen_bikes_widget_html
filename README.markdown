@@ -12,7 +12,7 @@ And add this script tag to the bottom of your page:
 <script src="http://widget.bikeindex.org/include.js"></script>
 ```
 
-You can view an example of it here: [widget.bikeindex.org](http://widget.bikeindex.org)
+You can view an example of it on [VeloHut.com](http://www.velohut.com/)
 
 ===
 
