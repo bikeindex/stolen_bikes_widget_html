@@ -1,6 +1,25 @@
 # Recent stolen bikes widget
 
-<script src="include.js" type="text/javascript"></script>
+For the widget, all you need to do is include this HTML where you would like the widget to appear:
+
+```
+<div id="binx_stolen_widget" data-location=""></div>
+```
+
+And add this script tag to the bottom of your page:
+
+```
+<script src="http://widget.bikeindex.org/include.js"></script>
+```
+
+You can view an example of it here: [widget.bikeindex.org](http://widget.bikeindex.org)
+
+===
+
+**More documentation will be added soon!**
+
+===
+
 
 #### Running it
 
