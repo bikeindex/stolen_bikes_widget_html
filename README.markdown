@@ -29,8 +29,8 @@ A few options for customization and configuration:
 | -------- | ------------ | ------------- |
 | `data-location` | Find stolen bikes near this location first (address, city, state, lat/long) | Shows bikes near where we guess they are |
 | `data-height` | max-height for the widget in pixels | max-height of 500px |
-| `data-recent` | Boolean - whether or not it should fetch recent stolen bikes | Default to true |
-| `data-nocache` | Don't store recent stolen bikes in localstorage | For development purposes |
+| `data-norecent` | Boolean - whether or not it should fetch recent stolen bikes | Default to false |
+<!-- | `data-nocache` | Don't store recent stolen bikes in localstorage | For development purposes | -->
 
 Set the options by adding the attributes and value to the `div` you add to your page. For example:
 
@@ -52,7 +52,7 @@ Sets the initial search to Portland, OR, makes it 1000px high and shows 20 bikes
 
 - Locally we use [rerun](https://github.com/alexch/rerun) to restart the app on changes. Launch the app in development mode with `rerun 'rackup'`.
 
-- If you run it locally, the root url doesn't cache and references the separate files to make development easier.
+- If you run it locally, the index page doesn't cache and references the separate js files to make development easier.
 
 ===
 

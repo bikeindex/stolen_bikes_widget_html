@@ -50,6 +50,7 @@ appendBikes = function(data, setTime) {
     localStorage.setItem('binx_rstolen', JSON.stringify(cache));
   }
   $("#binx_list_container").html(Mustache.render(binx_list_item, data));
+  $('#binx_stolen_widget ul').css('max-height', $('#binx_stolen_widget').attr('data-height'));
   formatDates();
   if (data.recent_results == null) {
     if (data.bikes.length > 0) {
@@ -117,7 +118,6 @@ getNearbyStolen = function(location, existing_bikes) {
 initializeBinxWidget = function(options) {
   var cache, is_cached, time;
   Mustache.parse(binx_list_item);
-  console.log(options.height);
   $('#binx_stolen_widget').html(Mustache.render(binx_widget_template, options.height));
   $('#binx_search_form').submit(function(event) {
     getSerialResponse($('#binx_search').val());
@@ -126,6 +126,9 @@ initializeBinxWidget = function(options) {
   $('#binxformsubm_a').click(function(event) {
     return getSerialResponse($('#binx_search').val());
   });
+  if (options.norecent) {
+    return true;
+  }
   is_cached = false;
   if (!options.nocache) {
     cache = localStorage.getItem('binx_rstolen');
@@ -144,16 +147,18 @@ initializeBinxWidget = function(options) {
 };
 
 $(document).ready(function() {
-  var container, options, _ref, _ref1, _ref2;
+  var container, options, _ref, _ref1, _ref2, _ref3;
   container = $('#binx_stolen_widget');
   options = {
-    nocache: (_ref = container.attr('data-nocache')) != null ? _ref : false,
-    location: (_ref1 = container.attr('data-location')) != null ? _ref1 : '',
-    height: "" + ((_ref2 = container.attr('data-height')) != null ? _ref2 : 350) + "px"
+    location: (_ref = container.attr('data-location')) != null ? _ref : '',
+    height: "" + ((_ref1 = container.attr('data-height')) != null ? _ref1 : 450) + "px",
+    nocache: (_ref2 = container.attr('data-nocache')) != null ? _ref2 : false,
+    norecent: (_ref3 = container.attr('data-norecent')) != null ? _ref3 : false
   };
+  container.attr('data-height', options.height);
   return initializeBinxWidget(options);
 });
 
-binx_widget_template = "<link href=\"" + root_url + "styles.css\" rel=\"stylesheet\" type=\"text/css\">\n<style scoped>.binx-stolen-widget-list {max-height: {{height}};}</style>\n<form class=\"topsearcher\" id=\"binx_search_form\">\n  <span class=\"spacing-span\"></span>\n  <span class=\"top-stripe skinny-stripe\"></span>\n  <span class=\"spacing-span\"></span>\n  <span class=\"top-stripe fat-stripe\"></span>\n  <span class=\"spacing-span\"></span>\n  <span class=\"bottom-stripe fat-stripe\"></span>\n  <span class=\"spacing-span\"></span>\n  <span class=\"bottom-stripe skinny-stripe\"></span>\n  <input id=\"binx_search\" type=\"text\" placeholder=\"Search for a serial number\">\n  <input type=\"submit\" id=\"binxformsubm\">\n  <a href=\"#\" class=\"subm\" id=\"binxformsubm_a\"><img src=\"" + root_url + "search.svg\"></a>\n</div>\n<div class='binxcontainer' id='binx_list_container'></div>";
+binx_widget_template = "<link href=\"" + root_url + "styles.css\" rel=\"stylesheet\" type=\"text/css\">\n<form class=\"topsearcher\" id=\"binx_search_form\">\n  <span class=\"spacing-span\"></span>\n  <span class=\"top-stripe skinny-stripe\"></span>\n  <span class=\"spacing-span\"></span>\n  <span class=\"top-stripe fat-stripe\"></span>\n  <span class=\"spacing-span\"></span>\n  <span class=\"bottom-stripe fat-stripe\"></span>\n  <span class=\"spacing-span\"></span>\n  <span class=\"bottom-stripe skinny-stripe\"></span>\n  <input id=\"binx_search\" type=\"text\" placeholder=\"Search for a serial number\">\n  <input type=\"submit\" id=\"binxformsubm\">\n  <a href=\"#\" class=\"subm\" id=\"binxformsubm_a\"><img src=\"" + root_url + "search.svg\"></a>\n</form>\n<div class='binxcontainer' id='binx_list_container'></div>";
 
-binx_list_item = "{{#serial_searched}}\n  <h2 class=\"search-response-info\">Bikes with serial numbers matching <em>{{serial_searched}}</em></h2>\n{{/serial_searched}}\n<ul class=\"binx-stolen-widget-list\">\n  {{#bikes}}\n    <li class='{{#stolen}}stolen{{/stolen}}'>\n      {{#thumb}}\n         <a class='stolen-thumb' href='{{url}}' target=\"_blank\">\n          <img src='{{thumb}}'>\n        </a>\n      {{/thumb}}\n      <h4>\n        <a href='{{url}}' target=\"_blank\">{{title}}</a>\n      </h4>\n      {{#stolen}}\n        <p>\n          <span class='stolen-color'>Stolen</span> {{#stolen_record.location}}from {{stolen_record.location}} &mdash; {{/stolen_record.location}} <span class='date-stolen'>{{stolen_record.date_stolen}}\n        </p>\n      {{/stolen}}\n      <p>\n        Serial: <span class='serial-text'>{{serial}}</span>\n      </p>\n      {{^stolen}}\n        <p class=\"not-stolen\">Bike is not marked stolen</p>\n      {{/stolen}}\n    </li>\n  {{/bikes}}\n</ul>\n{{^bikes}}\n  <div class=\"binx-stolen-widget-list\">\n    {{#recent_results}}\n      <h2 class='search-fail'>\n        We're sorry! Something went wrong and we couldn't retrieve recent results!\n        <span>We're probably working on fixing this right now, send us an email at <a href=\"mailto:contact@bikeindex.org\">contact@bikeindex.org</a> if the problem persists</span>\n      </h2>\n    {{/recent_results}}\n    {{#serial_searched}}\n      <h2 class='search-fail'>\n        No bikes found on the Bike Index with a serial of <span class=\"search-query\">{{serial_searched}}</span>\n      </h2>\n    {{/serial_searched}}\n  </div>\n{{/bikes}}\n{{#recent_results}}\n  <div class=\"widget-info\">\n    Recent reported stolen bikes \n    {{#location}}\n      near <em>{{location}}</em>\n    {{/location}}\n  </div>\n{{/recent_results}}";
+binx_list_item = "{{#serial_searched}}\n  <h2 class=\"search-response-info\">Bikes with serial numbers matching <em>{{serial_searched}}</em></h2>\n{{/serial_searched}}\n<ul>\n  {{#bikes}}\n    <li class='{{#stolen}}stolen{{/stolen}}'>\n      {{#thumb}}\n         <a class='stolen-thumb' href='{{url}}' target=\"_blank\">\n          <img src='{{thumb}}'>\n        </a>\n      {{/thumb}}\n      <h4>\n        <a href='{{url}}' target=\"_blank\">{{title}}</a>\n      </h4>\n      {{#stolen}}\n        <p>\n          <span class='stolen-color'>Stolen</span> {{#stolen_record.location}}from {{stolen_record.location}} &mdash; {{/stolen_record.location}} <span class='date-stolen'>{{stolen_record.date_stolen}}\n        </p>\n      {{/stolen}}\n      <p>\n        Serial: <span class='serial-text'>{{serial}}</span>\n      </p>\n      {{^stolen}}\n        <p class=\"not-stolen\">Bike is not marked stolen</p>\n      {{/stolen}}\n    </li>\n  {{/bikes}}\n</ul>\n{{^bikes}}\n  <div class=\"binx-stolen-widget-list\">\n    {{#recent_results}}\n      <h2 class='search-fail'>\n        We're sorry! Something went wrong and we couldn't retrieve recent results!\n        <span>We're probably working on fixing this right now, send us an email at <a href=\"mailto:contact@bikeindex.org\">contact@bikeindex.org</a> if the problem persists</span>\n      </h2>\n    {{/recent_results}}\n    {{#serial_searched}}\n      <h2 class='search-fail'>\n        No bikes found on the Bike Index with a serial of <span class=\"search-query\">{{serial_searched}}</span>\n      </h2>\n    {{/serial_searched}}\n  </div>\n{{/bikes}}\n{{#recent_results}}\n  <div class=\"widget-info\">\n    Recent reported stolen bikes \n    {{#location}}\n      near <em>{{location}}</em>\n    {{/location}}\n  </div>\n{{/recent_results}}";

@@ -26,6 +26,7 @@ appendBikes = (data, setTime=null) ->
       time: setTime
     localStorage.setItem('binx_rstolen', JSON.stringify(cache))
   $("#binx_list_container").html(Mustache.render(binx_list_item, data))
+  $('#binx_stolen_widget ul').css('max-height', $('#binx_stolen_widget').attr('data-height'))
   formatDates()
   unless data.recent_results?
     # Show the number of results unless it's recent thefts or there are no results
@@ -81,7 +82,6 @@ getNearbyStolen = (location, existing_bikes=[]) ->
 
 initializeBinxWidget = (options) ->
   Mustache.parse binx_list_item
-  console.log(options.height)
   $('#binx_stolen_widget').html(Mustache.render(binx_widget_template, options.height))
 
   $('#binx_search_form').submit (event) ->
@@ -90,6 +90,8 @@ initializeBinxWidget = (options) ->
 
   $('#binxformsubm_a').click (event) ->
     getSerialResponse($('#binx_search').val())
+
+  return true if options.norecent
 
   is_cached = false
   unless options.nocache
@@ -109,16 +111,16 @@ initializeBinxWidget = (options) ->
 $(document).ready ->
   container = $('#binx_stolen_widget')
   options = 
-    nocache: container.attr('data-nocache') ? false
     location: container.attr('data-location') ? ''
-    height: "#{container.attr('data-height') ? 350}px"
-
+    height: "#{container.attr('data-height') ? 450}px"
+    nocache: container.attr('data-nocache') ? false
+    norecent: container.attr('data-norecent') ? false
+  container.attr('data-height', options.height)
   initializeBinxWidget(options)
   
 
 binx_widget_template = """
   <link href="#{root_url}styles.css" rel="stylesheet" type="text/css">
-  <style scoped>.binx-stolen-widget-list {max-height: {{height}};}</style>
   <form class="topsearcher" id="binx_search_form">
     <span class="spacing-span"></span>
     <span class="top-stripe skinny-stripe"></span>
@@ -131,7 +133,7 @@ binx_widget_template = """
     <input id="binx_search" type="text" placeholder="Search for a serial number">
     <input type="submit" id="binxformsubm">
     <a href="#" class="subm" id="binxformsubm_a"><img src="#{root_url}search.svg"></a>
-  </div>
+  </form>
   <div class='binxcontainer' id='binx_list_container'></div>
 """
 
@@ -139,7 +141,7 @@ binx_list_item = """
   {{#serial_searched}}
     <h2 class="search-response-info">Bikes with serial numbers matching <em>{{serial_searched}}</em></h2>
   {{/serial_searched}}
-  <ul class="binx-stolen-widget-list">
+  <ul>
     {{#bikes}}
       <li class='{{#stolen}}stolen{{/stolen}}'>
         {{#thumb}}
