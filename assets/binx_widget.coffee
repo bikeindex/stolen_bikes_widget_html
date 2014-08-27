@@ -1,5 +1,6 @@
 root_url = "http://widget.bikeindex.org/"
 # root_url = "http://localhost:9292/"
+binx_api = "https://bikeindex.org/api/v1/bikes?widget_from=#{document.domain}&"
 
 Array::uniq = ->
   output = {}
@@ -14,7 +15,7 @@ getSerialResponse = (serial) ->
   that = this
   $.ajax
     type: "GET"
-    url: "https://bikeindex.org/api/v1/bikes?serial=#{serial}"
+    url: "#{binx_api}serial=#{serial}"
     success: (data, textStatus, jqXHR) ->
       data.serial_searched = serial
       that.appendBikes(data)
@@ -63,7 +64,7 @@ formatDates = ->
 #       that.appendBikes(data.bikes, serial, true)
 
 getNearbyStolen = (location, existing_bikes=[]) ->
-  url = "https://bikeindex.org/api/v1/bikes?stolen=true&proximity=#{location}&proximity_radius=100"
+  url = "#{binx_api}stolen=true&proximity=#{location}&proximity_radius=100"
   $.ajax
     type: "GET"
     url: url
