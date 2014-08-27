@@ -112,10 +112,12 @@ $(document).ready ->
   container = $('#binx_stolen_widget')
   options = 
     location: container.attr('data-location') ? ''
-    height: "#{container.attr('data-height') ? 350}px"
     nocache: container.attr('data-nocache') ? false
     norecent: container.attr('data-norecent') ? false
-  container.attr('data-height', options.height)
+  
+  height = container.attr('data-height') ? 400
+  height = parseInt(height, 10) - 41 # Header height
+  container.attr('data-height', "#{height}px")
   initializeBinxWidget(options)
   
 
