@@ -3,8 +3,6 @@ var appendBikes, binx_list_item, binx_widget_template, formatDates, getNearbySto
 
 root_url = "http://recoveries.bikeindex.org";
 
-root_url = "http://localhost:9292/";
-
 Array.prototype.uniq = function() {
   var key, output, value, _i, _ref, _results;
   output = {};

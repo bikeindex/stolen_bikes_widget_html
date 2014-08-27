@@ -1,5 +1,5 @@
 root_url = "http://recoveries.bikeindex.org"
-root_url = "http://localhost:9292/"
+# root_url = "http://localhost:9292/"
 
 Array::uniq = ->
   output = {}
