@@ -1,4 +1,4 @@
-root_url = "http://recoveries.bikeindex.org"
+root_url = "http://widget.bikeindex.org/"
 # root_url = "http://localhost:9292/"
 
 Array::uniq = ->
@@ -112,7 +112,7 @@ $(document).ready ->
   container = $('#binx_stolen_widget')
   options = 
     location: container.attr('data-location') ? ''
-    height: "#{container.attr('data-height') ? 450}px"
+    height: "#{container.attr('data-height') ? 350}px"
     nocache: container.attr('data-nocache') ? false
     norecent: container.attr('data-norecent') ? false
   container.attr('data-height', options.height)
