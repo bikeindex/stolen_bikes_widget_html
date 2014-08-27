@@ -30,15 +30,15 @@ A few options for customization and configuration:
 | `data-location` | Find stolen bikes near this location first (address, city, state, lat/long) | Shows bikes near where we guess they are |
 | `data-height` | max-height for the widget in pixels | max-height of 500px |
 | `data-norecent` | Boolean - whether or not it should fetch recent stolen bikes | Default to false |
-<!-- | `data-nocache` | Don't store recent stolen bikes in localstorage | For development purposes | -->
+| `data-nocache` | Don't store recent stolen bikes in localstorage | For development purposes |
 
 Set the options by adding the attributes and value to the `div` you add to your page. For example:
 
 ```html
-<div id="binx_stolen_widget" data-location="Portland, OR" data-height="1000" data-count="20"></div>
+<div id="binx_stolen_widget" data-location="Portland, OR" data-height="1000"></div>
 ```
 
-Sets the initial search to Portland, OR, makes it 1000px high and shows 20 bikes initially.
+(This sets the initial search to Portland, OR and makes the widget a max of 1000px high.)
 
 
 
