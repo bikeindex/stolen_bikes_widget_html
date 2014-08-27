@@ -1,36 +1,59 @@
-# Recent stolen bikes widget
+# Recent stolen bikes & search widget
 
-For the widget, all you need to do is include this HTML where you would like the widget to appear:
+Alert people to recent thefts! Give people a convenient way to search for stolen bikes right on your page!
 
+<!-- ![Example widget display](https://github.com/bikeindex/stolen_bikes_widget_html/blob/master/example.png?raw=true) -->
+![Example widget display](example.png)
+
+All you need to do is include this HTML snippet where you would like the widget to appear:
+
+```html
+<div id="binx_stolen_widget"></div>
 ```
-<div id="binx_stolen_widget" data-location=""></div>
-```
 
-And add this script tag to the bottom of your page:
+And add this to the header of your page:
 
-```
+```html
 <script src="http://widget.bikeindex.org/include.js"></script>
 ```
 
-You can view an example of it on [VeloHut.com](http://www.velohut.com/)
+#### View an example of it on [VeloHut.com](http://www.velohut.com#binx_stolen_widget)!
 
 ===
 
-**More documentation will be added soon!**
+### Extra options
 
-===
+A few options for customization and configuration:
+
+| property | what it does | blank/default |
+| -------- | ------------ | ------------- |
+| `data-location` | Find stolen bikes near this location first (address, city, state, lat/long) | Shows bikes near where we guess they are |
+| `data-height` | max-height for the widget in pixels | max-height of 500px |
+| `data-recent` | Boolean - whether or not it should fetch recent stolen bikes | Default to true |
+| `data-nocache` | Don't store recent stolen bikes in localstorage | For development purposes |
+
+Set the options by adding the attributes and value to the `div` you add to your page. For example:
+
+```html
+<div id="binx_stolen_widget" data-location="Portland, OR" data-height="1000" data-count="20"></div>
+```
+
+Sets the initial search to Portland, OR, makes it 1000px high and shows 20 bikes initially.
 
 
-#### Running it
 
-Locally we use [rerun](https://github.com/alexch/rerun) to restart the app on changes. Launch the app in development mode with `rerun 'rackup'`. You can run the tests with `rerun 'rake spec'` (sometimes this breaks and infinitely reloops. Srys.)
+### Under the hood
 
-This: 
+- Saves the response from the Bike Index API in localStorage for 3 hours
 
-- Saves the response from the Bike Index API in localStorage for 6 hours
-
-- It doesn't have any dependencies (i.e. doesn't require jQuery)
+- This widget requires jQuery. Sorry.
 
 - You can use it however you want (MIT license for those who care)
 
-- I haven't made a build process because I don't know if anyone cares. Tell me if you do.
+- Locally we use [rerun](https://github.com/alexch/rerun) to restart the app on changes. Launch the app in development mode with `rerun 'rackup'`.
+
+- If you run it locally, the root url doesn't cache and references the separate files to make development easier.
+
+===
+
+Made with all the :doughnut:s. [Bike Index](https://bikeindex.org)

@@ -4,7 +4,7 @@
 .DS_Store
 .sass-cache
 
-lazy_compilation
+lazy_compilation*
 
 # Ignore bundler config
 /.bundle
