@@ -1,6 +1,6 @@
 # root_url = "http://widget.bikeindex.org/"       # doesn't support HTTPS
 # root_url = "http://localhost:9292/"             # Dev url
-root_url = "https://binx-widget.herokuapp.com"    # Current heroku location (HTTPS)
+root_url = "https://binx-widget.herokuapp.com/"    # Current heroku location (HTTPS)
 
 binx_api = "https://bikeindex.org/api/v1/bikes?widget_from=#{document.domain}&"
 
