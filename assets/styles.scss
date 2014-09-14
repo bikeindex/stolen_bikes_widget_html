@@ -133,6 +133,7 @@ $fatHeight: 25%;
 
 
  .topsearcher {
+    float: none;
     margin: 0;
     border-radius: 2px 2px 0 0;
     background: #fff;
@@ -141,6 +142,8 @@ $fatHeight: 25%;
     position: relative;
     display: block;
     span {
+      margin: 0; padding: 0;
+      float: none;
       position: relative;
       display: block;
       width: 100%;

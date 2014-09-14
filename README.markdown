@@ -27,7 +27,7 @@ A few options for customization and configuration:
 
 | property | what it does | blank/default |
 | -------- | ------------ | ------------- |
-| `data-location` | Find stolen bikes near this location first (address, city, state, lat/long) | Shows bikes near where we guess they are |
+| `data-location` | Find stolen bikes near this location first (address, city, state or lat/long) | Shows most recent stolen from anywhere |
 | `data-height` | max-height for the widget in pixels | 400px |
 | `data-norecent` | Boolean - whether or not it should fetch recent stolen bikes | false |
 | `data-nocache` | Don't store recent stolen bikes in localstorage, for development purposes | false |
