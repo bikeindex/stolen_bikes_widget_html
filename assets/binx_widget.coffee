@@ -75,7 +75,8 @@ getNearbyStolen = (location, existing_bikes=[]) ->
       data.recent_results = true
       # concat existing bikes, in case this is a second call
       data.bikes = existing_bikes.concat(data.bikes)
-      data.location = location if location.length > 0
+      # Disabling location display for now, till API returns location info for IP queries
+      # data.location = location if location.length > 0
       # Call it again with no location if we don't have enough bikes
       # Don't call if location absent so we don't infinite loop
       if data.bikes.length < 6 && location.length > 0
@@ -114,7 +115,7 @@ initializeBinxWidget = (options) ->
 $(document).ready ->
   container = $('#binx_stolen_widget')
   options = 
-    location: container.attr('data-location') ? ''
+    location: container.attr('data-location') ? 'ip'
     nocache: container.attr('data-nocache') ? false
     norecent: container.attr('data-norecent') ? false
   
