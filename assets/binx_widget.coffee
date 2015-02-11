@@ -2,7 +2,7 @@
 # root_url = "http://localhost:9292/"             # Dev url
 root_url = "https://binx-widget.herokuapp.com/"    # Current heroku location (HTTPS)
 
-binx_api = "https://bikeindex.org/api/v1/bikes?widget_from=#{document.domain}&"
+binx_api = "https://bikeindex.org/api/v2/bikes_search/stolen?per_page=10&widget_from=#{document.domain}&"
 
 Array::uniq = ->
   output = {}
@@ -47,14 +47,12 @@ formatDates = ->
   yesterday.setDate(today.getDate() - 1)
   yesterday = yesterday.toString().split(/\d{2}:/)[0]
   today = today.toString().split(/\d{2}:/)[0]
-
   for ds in $("#binx_list_container .date-stolen")
-    ds = $(ds)
-    sdate = new Date(Date.parse(ds.text().trim()))
+    sdate = new Date(parseInt($(ds).text(), 10) * 1000)
     date = sdate.toString().split(/\d{2}:/)[0]
     date = 'Today' if date == today
     date = 'Yesterday' if date == yesterday
-    ds.text(date)
+    $(ds).text(date)
 
 # getFuzzySerialResponse = (serial) ->
 #   base_url = $('#multiserial_fuzzy').attr('data-target')
@@ -66,7 +64,7 @@ formatDates = ->
 #       that.appendBikes(data.bikes, serial, true)
 
 getNearbyStolen = (location, existing_bikes=[]) ->
-  url = "#{binx_api}stolen=true&proximity=#{location}&proximity_radius=100"
+  url = "#{binx_api}proximity=#{location}&proximity_radius=100"
   $.ajax
     type: "GET"
     url: url
@@ -160,7 +158,7 @@ binx_list_item = """
         </h4>
         {{#stolen}}
           <p>
-            <span class='stolen-color'>Stolen</span> {{#stolen_record.location}}from {{stolen_record.location}} &mdash; {{/stolen_record.location}} <span class='date-stolen'>{{stolen_record.date_stolen}}
+            <span class='stolen-color'>Stolen</span> {{#stolen_location}}from {{stolen_location}} &mdash; {{/stolen_location}} <span class='date-stolen'>{{date_stolen}}
           </p>
         {{/stolen}}
         <p>
