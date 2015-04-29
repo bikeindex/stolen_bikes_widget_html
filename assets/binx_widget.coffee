@@ -149,12 +149,12 @@ binx_list_item = """
     {{#bikes}}
       <li class='{{#stolen}}stolen{{/stolen}}'>
         {{#thumb}}
-           <a class='stolen-thumb' href='{{url}}' target="_blank">
+           <a class='stolen-thumb' href='https://bikeindex.org/bikes/{{id}}' target="_blank">
             <img src='{{thumb}}'>
           </a>
         {{/thumb}}
         <h4>
-          <a href='{{url}}' target="_blank">{{title}}</a>
+          <a href='https://bikeindex.org/bikes/{{id}}' target="_blank">{{title}}</a>
         </h4>
         {{#stolen}}
           <p>
