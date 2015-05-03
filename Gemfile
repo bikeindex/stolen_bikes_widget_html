@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 ruby '2.1.0'
 
-gem 'sinatra'
-
-group :development do 
-  gem 'rerun'
-end
+gem 'jekyll'
+gem 'japr', github: 'sethherr/japr'
+gem 'coffee-script'
+gem 'sass'
+gem 'yui-compressor'

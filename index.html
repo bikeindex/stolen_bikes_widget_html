@@ -1,0 +1,28 @@
+---
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  {% javascript_asset_tag include %}
+  - /assets/mustache.js
+  - /assets/widget.coffee
+  {% endjavascript_asset_tag %}
+  <title>Bike Index Stolen Widget</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico" />
+  <style type="text/css">
+    body { margin: 0; padding: 0; background: #000;}
+    .sample-container { max-width: 600px; margin: 100px auto 100px; }
+  </style>
+  <meta name="description" content="{{ site.description }}">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript">window.binxw_root_url = "/";</script>
+</head>
+<body>
+
+  <div class="sample-container">
+    <div id="binx_stolen_widget" data-nocache="true" data-height="600"></div>
+  </div>
+  <script src="{{ "/include.js" | prepend: site.baseurl }}"></script>
+</body>
+</html>

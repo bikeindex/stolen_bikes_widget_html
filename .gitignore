@@ -4,8 +4,6 @@
 .DS_Store
 .sass-cache
 
-lazy_compilation*
-
 # Ignore bundler config
 /.bundle
 
@@ -14,3 +12,4 @@ lazy_compilation*
 .ruby-gemset
 .ruby-version
 .powenv
+_site

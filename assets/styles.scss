@@ -1,3 +1,6 @@
+---
+---
+
 @mixin clearfix() {
   *zoom: 1;
   &:before,
@@ -21,6 +24,10 @@ $darkBIBlue: #2c3e50;
 
 $skinnyHeight: 15%;
 $fatHeight: 25%;
+
+// 
+// Wrap everything up so we don't interfere with page styles
+// 
 
 #binx_stolen_widget {
   font-family: Helvetica;

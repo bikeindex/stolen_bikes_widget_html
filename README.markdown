@@ -1,9 +1,8 @@
 # Recent stolen bikes & search widget
 
-Alert people to recent thefts! Give people a convenient way to search for stolen bikes right on your page!
+Alert people to recent thefts! Give people a convenient way to search for stolen bikes right on your page.
 
-<!-- ![Example widget display](https://github.com/bikeindex/stolen_bikes_widget_html/blob/master/example.png?raw=true) -->
-![Example widget display](example.png)
+![Example widget display](readme_example.png)
 
 All you need to do is include this HTML snippet where you would like the widget to appear:
 
@@ -17,7 +16,7 @@ And add this to the header of your page:
 <script src="http://widget.bikeindex.org/include.js"></script>
 ```
 
-#### View an example of it on [VeloHut.com](http://www.velohut.com#binx_stolen_widget)!
+#### View an example of it on [IndyCog](http://indycog.org/stolenbikes)!
 
 ===
 
@@ -25,12 +24,12 @@ And add this to the header of your page:
 
 A few options for customization and configuration:
 
-| property | what it does | blank/default |
+| property | what it does | default |
 | -------- | ------------ | ------------- |
 | `data-location` | Find stolen bikes near this location first (address, city, state or lat/long) | Shows recent stolen near ip geolocation |
 | `data-height` | max-height for the widget in pixels | 400px |
-| `data-norecent` | Boolean - whether or not it should fetch recent stolen bikes | false |
-| `data-nocache` | Don't store recent stolen bikes in localstorage, for development purposes | false |
+| `data-norecent` | Boolean - whether or not it should fetch recent stolen bikes (it starts just as a search widget) | false |
+| `data-nocache` | Don't store recent results in localstorage. For development purposes | false |
 
 Set the options by adding the attributes and value to the `div` you add to your page. For example:
 
@@ -44,15 +43,15 @@ Set the options by adding the attributes and value to the `div` you add to your 
 
 ### Under the hood
 
-- Saves the response from the Bike Index API in localStorage for 3 hours
+- Saves the response from the Bike Index API in localStorage for 3 hours, so it doesn't cause issues for your page loads.
 
-- This widget requires jQuery. Sorry.
+- Requires jQuery. Sorry.
 
 - You can use it however you want (MIT license for those who care)
 
-- Locally we use [rerun](https://github.com/alexch/rerun) to restart the app on changes. Launch the app in development mode with `rerun 'rackup'`.
+- To run it locally, `bundle install` and run `jekyll serve`, then open the url that is printed out on your console.
 
-- If you run it locally, the index page doesn't cache and references the separate js files to make development easier.
+- This is built with [jekyll](http://jekyllrb.com).
 
 ===
 

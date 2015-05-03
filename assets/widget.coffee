@@ -1,6 +1,7 @@
-# root_url = "http://widget.bikeindex.org/"       # doesn't support HTTPS
-# root_url = "http://localhost:9292/"             # Dev url
-root_url = "https://binx-widget.herokuapp.com/"    # Current heroku location (HTTPS)
+# 
+# Set the root url from the global variable if it's present (it's set for local development)
+# 
+root_url = window.binxw_root_url || "https://widget.bikeindex.org/"
 
 binx_api = "https://bikeindex.org/api/v2/bikes_search/stolen?per_page=10&widget_from=#{document.domain}&"
 
@@ -124,7 +125,7 @@ $(document).ready ->
   
 
 binx_widget_template = """
-  <link href="#{root_url}styles.css" rel="stylesheet" type="text/css">
+  <link href="#{root_url}assets/styles.css" rel="stylesheet" type="text/css">
   <form class="topsearcher" id="binx_search_form">
     <span class="spacing-span"></span>
     <span class="top-stripe skinny-stripe"></span>
@@ -136,7 +137,7 @@ binx_widget_template = """
     <span class="bottom-stripe skinny-stripe"></span>
     <input id="binx_search" type="text" placeholder="Search for a serial number">
     <input type="submit" id="binxformsubm">
-    <a href="#" class="subm" id="binxformsubm_a"><img src="#{root_url}search.svg"></a>
+    <a href="#" class="subm" id="binxformsubm_a"><img src="#{root_url}assets/search.svg"></a>
   </form>
   <div class='binxcontainer' id='binx_list_container'></div>
 """
