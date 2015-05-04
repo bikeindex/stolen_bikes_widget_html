@@ -5,8 +5,8 @@
 <html>
 <head>
   {% javascript_asset_tag include %}
-  - /assets/mustache.js
-  - /assets/widget.coffee
+  - /_compile/mustache.js
+  - /_compile/widget.coffee
   {% endjavascript_asset_tag %}
   <title>Bike Index Stolen Widget</title>
   <link rel="shortcut icon" href="/assets/favicon.ico" />
@@ -15,7 +15,7 @@
     .sample-container { max-width: 600px; margin: 100px auto 100px; }
   </style>
   <meta name="description" content="{{ site.description }}">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
   <script type="text/javascript">window.binxw_root_url = "/";</script>
 </head>
 <body>

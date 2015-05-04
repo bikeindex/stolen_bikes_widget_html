@@ -1,0 +1,14 @@
+{
+  "name": "stolen-widget",
+  "root": "./_site/",
+  "clean_urls": true,
+  "error_page": "n",
+  "headers": {
+    "*": {
+      "Access-Control-Allow-Origin": "*"
+    },
+    "/scripts/**": {
+      "content-type": "text/javascript"
+    }
+  }
+}

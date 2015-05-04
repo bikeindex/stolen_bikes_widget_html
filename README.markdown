@@ -1,6 +1,6 @@
 # Recent stolen bikes & search widget
 
-Alert people to recent thefts! Give people a convenient way to search for stolen bikes right on your page.
+Alert people to recent thefts! Add a convenient way to search for stolen bikes right on your page.
 
 ![Example widget display](readme_example.png)
 
@@ -43,15 +43,15 @@ Set the options by adding the attributes and value to the `div` you add to your 
 
 ### Under the hood
 
-- Saves the response from the Bike Index API in localStorage for 3 hours, so it doesn't cause issues for your page loads.
+- Saves the response from the Bike Index API in localStorage for 3 hours.
 
 - Requires jQuery. Sorry.
 
 - You can use it however you want (MIT license for those who care)
 
-- To run it locally, `bundle install` and run `jekyll serve`, then open the url that is printed out on your console.
+- To run it locally `bundle install` and run `jekyll serve`. Open the url that is printed out on your console.
 
-- This is built with [jekyll](http://jekyllrb.com).
+- This is built with [jekyll](http://jekyllrb.com) and deployed with [divshot](https://divshot.com)
 
 ===
 

@@ -9,6 +9,12 @@ twitter_username: bikeindex
 github_username:  bikeindex
 sass:
   style: :compressed
+exclude:
+  - divshot.json
+  - Gemfile
+  - Gemfile.lock
+  - README.markdown
+  - readme_example.png
 asset_pipeline:
   bundle: true
   compress: true

@@ -1,9 +1,0 @@
-{
-  "firebase": "bikeindex-static",
-  "public": "_site",
-  "ignore": [
-    "firebase.json",
-    "**/.*",
-    "**/node_modules/**"
-  ]
-}
