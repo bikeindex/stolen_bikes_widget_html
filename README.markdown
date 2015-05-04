@@ -51,7 +51,7 @@ Set the options by adding the attributes and value to the `div` you add to your 
 
 - To run it locally `bundle install` and run `jekyll serve`. Open the url that is printed out on your console.
 
-- This is built with [jekyll](http://jekyllrb.com) and deployed with [divshot](https://divshot.com)
+- This is built with [jekyll](http://jekyllrb.com) and deployed with [divshot](https://divshot.com). You can view the published site in [_site](/_site)
 
 ===
 
