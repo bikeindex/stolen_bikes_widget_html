@@ -30,16 +30,9 @@ appendBikes = (data, setTime=null) ->
       time: setTime
     localStorage.setItem('binx_rstolen', JSON.stringify(cache))
   $("#binx_list_container").html(Mustache.render(binx_list_item, data))
-  $('#binx_stolen_widget ul').css('max-height', $('#binx_stolen_widget').attr('data-height'))
+  # $('#binx_stolen_widget ul').css('max-height', $('#binx_stolen_widget').attr('data-height'))
   formatDates()
-  unless data.recent_results?
-    # Show the number of results unless it's recent thefts or there are no results
-    if data.bikes.length > 0
-      if data.bikes.length > 19
-        i = " <span>(many found, showing first 20)</span>"
-      else
-        i = " <span>(#{data.bikes.length} found)</span>"
-      $('#binx_list_container .search-response-info').append(i)
+  
 
 formatDates = ->
   # Make dates human readable (and shorter)
@@ -65,15 +58,17 @@ formatDates = ->
 #       that.appendBikes(data.bikes, serial, true)
 
 getNearbyStolen = (location, existing_bikes=[]) ->
-  url = "#{binx_api}proximity=#{location}&proximity_radius=100"
+  # url = "#{binx_api}proximity=#{location}&proximity_radius=100"
+  url = "https://bikeindex.org/api/v2/bikes/3414"
   $.ajax
     type: "GET"
     url: url
     success: (data, textStatus, jqXHR) ->
+      console.log(data)
       time = new Date().getTime()
       data.recent_results = true
       # concat existing bikes, in case this is a second call
-      data.bikes = existing_bikes.concat(data.bikes)
+      data.bikes = existing_bikes.concat(data.bike)
       # Disabling location display for now, till API returns location info for IP queries
       # data.location = location if location.length > 0
       # Call it again with no location if we don't have enough bikes
@@ -147,7 +142,7 @@ binx_list_item = """
     <h2 class="search-response-info">Bikes with serial numbers matching <em>{{serial_searched}}</em></h2>
   {{/serial_searched}}
   <ul>
-    {{#bikes}}
+    {{#bike}}
       <li class='{{#stolen}}stolen{{/stolen}}'>
         {{#thumb}}
            <a class='stolen-thumb' href='https://bikeindex.org/bikes/{{id}}' target="_blank">
@@ -169,7 +164,7 @@ binx_list_item = """
           <p class="not-stolen">Bike is not marked stolen</p>
         {{/stolen}}
       </li>
-    {{/bikes}}
+    {{/bike}}
   </ul>
   {{^bikes}}
     <div class="binx-stolen-widget-list">
