@@ -1,6 +1,3 @@
-# 
-# Set the root url from the global variable if it's present (it's set for local development)
-# 
 root_url = window.binxw_root_url || "https://widget.bikeindex.org/"
 
 binx_api = "https://bikeindex.org/api/v2/bikes_search/stolen?per_page=10&widget_from=#{document.domain}&"
@@ -21,9 +18,9 @@ getSerialResponse = (serial) ->
     url: "#{binx_api}serial=#{serial}"
     success: (data, textStatus, jqXHR) ->
       data.serial_searched = serial
-      that.appendBikes(data)
+      window.appendBikes(data)
 
-appendBikes = (data, setTime=null) ->
+window.appendBikes = (data, setTime=null) ->
   if setTime?
     cache = 
       data: data
@@ -55,17 +52,9 @@ formatDates = ->
     date = 'Yesterday' if date == yesterday
     $(ds).text(date)
 
-# getFuzzySerialResponse = (serial) ->
-#   base_url = $('#multiserial_fuzzy').attr('data-target')
-#   that = this
-#   $.ajax
-#     type: "GET"
-#     url: "#{base_url}?serial=#{serial}"
-#     success: (data, textStatus, jqXHR) ->
-#       that.appendBikes(data.bikes, serial, true)
-
 getNearbyStolen = (location, existing_bikes=[]) ->
   url = "#{binx_api}proximity=#{location}&proximity_radius=100"
+  that = this
   $.ajax
     type: "GET"
     url: url
@@ -81,7 +70,7 @@ getNearbyStolen = (location, existing_bikes=[]) ->
       if data.bikes.length < 6 && location.length > 0
         getNearbyStolen('', data.bikes)
       else
-        appendBikes(data, time)
+        window.appendBikes(data, time)
 
 initializeBinxWidget = (options) ->
   Mustache.parse binx_list_item
@@ -106,7 +95,7 @@ initializeBinxWidget = (options) ->
       cache = JSON.parse(cache)
       if cache.time? and time - cache.time < 10800000
         is_cached = true
-        appendBikes(cache.data)
+        window.appendBikes(cache.data)
   unless is_cached
     getNearbyStolen(options.location)
 
@@ -181,7 +170,7 @@ binx_list_item = """
       {{/recent_results}}
       {{#serial_searched}}
         <h2 class='search-fail'>
-          No bikes found on the Bike Index with a serial of <span class="search-query">{{serial_searched}}</span>
+          No stolen bikes found on the Bike Index with a serial of <span class="search-query">{{serial_searched}}</span>
         </h2>
       {{/serial_searched}}
     </div>
