@@ -170,7 +170,7 @@ binx_list_item = """
       {{/recent_results}}
       {{#serial_searched}}
         <h2 class='search-fail'>
-          No stolen bikes found on the Bike Index with a serial of <span class="search-query">{{serial_searched}}</span>
+          No stolen bikes on the Bike Index with a serial of <span class="search-query">{{serial_searched}}</span>
         </h2>
       {{/serial_searched}}
     </div>
