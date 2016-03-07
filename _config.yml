@@ -2,8 +2,6 @@ title: Bike Index stolen bike widget
 description: > #
   A Bike Index widget for every occassion.
   Show the stolen bikes, find the stolen bikes, get them back!
-baseurl: 
-url: https://widget.bikeindex.org
 safe: false
 twitter_username: bikeindex
 github_username:  bikeindex
