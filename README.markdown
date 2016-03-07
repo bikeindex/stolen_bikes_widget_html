@@ -51,7 +51,7 @@ Set the options by adding the attributes and value to the `div` you add to your 
 
 - To run it locally `bundle install` and run `jekyll serve`. Open the url that is printed out on your console.
 
-- This is built with [jekyll](http://jekyllrb.com) and [jekyll-asset-pipeline](https://github.com/matthodan/jekyll-asset-pipeline). *Jekyll asset pipeline compresses and concatenates the javascript & coffeescript and puts it in the root folder (so github pages doesn't overwrite it, since github pages ignores jekyll plugins)*.
+- This site was built with [jekyll](http://jekyllrb.com) and [jekyll-asset-pipeline](https://github.com/matthodan/jekyll-asset-pipeline) (from the compile folder). Then Jekyll was removed. Let's just say it's in transition right now ;)
 
 - This site is deployed using github pages and cloudflare universal ssl. You can access it at https://widget.bikeindex.org
 

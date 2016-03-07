@@ -14,9 +14,10 @@ exclude:
   - Gemfile.lock
   - README.markdown
   - readme_example.png
-asset_pipeline:
-  bundle: true
-  compress: true
-  output_path: ../
-  display_path: nil      
-  gzip: false
+  - CNAME
+# asset_pipeline:
+#   bundle: true
+#   compress: true
+#   output_path: ../
+#   display_path: nil      
+#   gzip: false
