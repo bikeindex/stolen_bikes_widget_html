@@ -10,7 +10,6 @@ github_username:  bikeindex
 sass:
   style: :compressed
 exclude:
-  - divshot.json
   - Gemfile
   - Gemfile.lock
   - README.markdown
@@ -18,6 +17,6 @@ exclude:
 asset_pipeline:
   bundle: true
   compress: true
-  output_path: /
+  output_path: ../
   display_path: nil      
-  gzip: false       
+  gzip: false

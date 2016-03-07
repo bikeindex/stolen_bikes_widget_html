@@ -13,4 +13,5 @@
 .ruby-version
 .powenv
 
-.divshot-cache
+# Ignore built site
+_site
