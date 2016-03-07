@@ -14,7 +14,6 @@ exclude:
   - Gemfile.lock
   - README.markdown
   - readme_example.png
-  - CNAME
 # asset_pipeline:
 #   bundle: true
 #   compress: true
