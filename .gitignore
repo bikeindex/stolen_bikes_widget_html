@@ -1,17 +1,4 @@
-# Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
+node_modules
+coverage
+note
 .DS_Store
-.sass-cache
-
-# Ignore bundler config
-/.bundle
-
-# Ignore rvm stuff
-.rvmrc
-.ruby-gemset
-.ruby-version
-.powenv
-
-# Ignore built site
-_site

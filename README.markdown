@@ -2,23 +2,19 @@
 
 Alert people to recent thefts! Add a convenient way to search for stolen bikes right on your page.
 
-![Example widget display](readme_example.png)
+![Example widget display](screenshot.jpg)
 
 All you need to do is include this HTML snippet where you would like the widget to appear:
 
 ```html
-<div id="binx_stolen_widget"></div>
+<div id="binx-stolen-widget"></div>
 ```
 
 And add this to the header of your page:
 
 ```html
-<script src="http://widget.bikeindex.org/include.js"></script>
+<script src="http://widget.bikeindex.org/stolen-widget.js"></script>
 ```
-
-#### View an example of it on [IndyCog](http://indycog.org/stolenbikes)!
-
-===
 
 ### Extra options
 
@@ -26,36 +22,67 @@ A few options for customization and configuration:
 
 | property | what it does | default |
 | -------- | ------------ | ------------- |
-| `data-location` | Find stolen bikes near this location first (address, city, state or lat/long) | Shows recent stolen near ip geolocation |
-| `data-height` | max-height for the widget in pixels | 400px |
-| `data-norecent` | Boolean - whether or not it should fetch recent stolen bikes (it starts just as a search widget) | false |
-| `data-nocache` | Don't store recent results in localstorage. For development purposes | false |
+| `location` | Find stolen bikes near this location first (address, city, state or lat/long) | Shows recent for  |
+| `height` | max-height for the widget in pixels | 400px |
+| `recentResults` | Boolean - whether or not it should fetch recent stolen bikes (it starts just as a search widget) | true |
+| `cacheResults` | Store recent results for three hours in localstorage | true |
+| `elementId` | the id of the div element for the widget | binx-stolen-widget |
 
-Set the options by adding the attributes and value to the `div` you add to your page. For example:
+
+### Examples
+
+Set the options when configuring the widget within the script tag:
 
 ```html
-<div id="binx_stolen_widget" data-location="Portland, OR" data-height="1000"></div>
+<!-- Override default options -->
+
+<script>
+  BikeIndex.init({
+    height: 400,
+    cacheResults: true,
+    recentResults: true,
+    location: 'Portland, OR',
+    elementId: 'some-other-id',
+  });
+</script>
 ```
 
-(This sets the initial search to Portland, OR and makes the widget a max of 1000px high.)
+```html
+<!-- No options -->
+
+<script>
+  BikeIndex.init();
+</script>
+```
 
 
+## Running locally
 
-### Under the hood
+1.  Install dependencies
 
-- Saves the response from the Bike Index API in localStorage for 3 hours.
+```
+yarn
+```
 
-- Requires jQuery. Sorry.
+2. Start webpack server in development mode
 
-- You can use it however you want (MIT license for those who care)
+```
+yarn start
+```
+  * This should open the widget in your browser [here](http://localhost:8080/)
 
-- To run it locally `bundle install` and run `jekyll serve`. Open the url that is printed out on your console.
+## Testing
 
-- This site was built with [jekyll](http://jekyllrb.com) and [jekyll-asset-pipeline](https://github.com/matthodan/jekyll-asset-pipeline) (from the compile folder). Then Jekyll was removed. Let's just say it's in transition right now ;)
+1. Run the script to lint and run the jest specs:
 
-- This site is deployed using github pages and cloudflare universal ssl. You can access it at https://widget.bikeindex.org
+```
+yarn test
+
+// OR
+
+yarn watch
+```
 
 
-===
 
 Made with all the :doughnut:s. [Bike Index](https://bikeindex.org)

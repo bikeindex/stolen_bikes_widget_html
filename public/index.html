@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bike Index Stolen Widget</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <style type="text/css">
+      body { margin: 0; padding: 0; background: #000;}
+      .sample-container { max-width: 600px; margin: 100px auto 100px; }
+    </style>
+    <meta name="description" content="Bike Index Stolen Widget">
+    <meta charset="UTF-8">
+
+    <script src="./stolen-widget.js"></script>
+    <script>
+      BikeIndex.init({
+        location: 'Portland, OR', // optional
+        recentResults: true,      // default
+        cacheResults: true,       // default
+        height: 600,              // optional
+        elementId: "widget"       // optional
+      });
+    </script>
+
+  </head>
+  <body>
+    <div class="sample-container">
+      <div id="widget"></div>
+    </div>
+  </body>
+</html>
