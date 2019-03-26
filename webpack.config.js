@@ -1,7 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const JavaScriptObfuscator = require('webpack-obfuscator');
-const WebpackBundleSizeAnalyzerPlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin;
 
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -9,7 +8,6 @@ const defaultConfig = {
   mode: 'production',
   plugins: [
     new CleanWebpackPlugin(['dist/']),
-    new WebpackBundleSizeAnalyzerPlugin('./size-report.txt'),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
