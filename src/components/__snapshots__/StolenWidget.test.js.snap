@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StolenWidget /> mount rendering matches the snapshot 1`] = `
+<StolenWidget>
+  <div
+    id="stolen-widget"
+  >
+    <form
+      className="topsearcher"
+      onSubmit={[Function]}
+    >
+      <input
+        disabled={false}
+        onChange={[Function]}
+        placeholder="Search for a serial number"
+        type="text"
+        value=""
+      />
+      <button
+        className="subm"
+        onClick={[Function]}
+        type="submit"
+      >
+        <img
+          alt="search"
+          src="test-file-stub"
+        />
+      </button>
+    </form>
+    <div
+      className="binxcontainer"
+      id="binx_list_container"
+    >
+      <List
+        maxHeight={359}
+        recentStolen={true}
+        results={
+          Array [
+            Object {
+              "date_stolen": 1553295600,
+              "frame_colors": Array [
+                "Red",
+              ],
+              "frame_material": null,
+              "frame_model": "Strada",
+              "handlebar_type": "Drop",
+              "id": 596985,
+              "is_stock_img": false,
+              "large_img": "https://files.bikeindex.org/uploads/Pu/149821/large_20190320_212118.jpg",
+              "manufacturer_name": "Novara",
+              "serial": "U161K02722",
+              "stolen": true,
+              "stolen_location": "Portland,OR,97202",
+              "thumb": "https://files.bikeindex.org/uploads/Pu/149821/small_20190320_212118.jpg",
+              "title": "2017 Novara Strada",
+              "year": 2016,
+            },
+          ]
+        }
+        serialNumber=""
+      >
+        <ul
+          style={
+            Object {
+              "maxHeight": 359,
+            }
+          }
+        >
+          <li
+            className="stolen"
+            key="596985"
+          >
+            <a
+              className="stolen-thumb"
+              href="https://bikeindex.org/bikes/596985"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="thumb"
+                src="https://files.bikeindex.org/uploads/Pu/149821/small_20190320_212118.jpg"
+              />
+            </a>
+            <h4>
+              <a
+                href="https://bikeindex.org/bikes/596985"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                2017 Novara Strada
+              </a>
+            </h4>
+            <p>
+              <span
+                className="stolen-color"
+              >
+                Stolen
+              </span>
+              <span>
+                 from 
+                Portland,OR,97202
+                 —
+              </span>
+              <span
+                className="date-stolen"
+              >
+                 
+                Fri Mar 22 2019
+              </span>
+            </p>
+            <p>
+              Serial: 
+              <span
+                className="serial-text"
+              >
+                U161K02722
+              </span>
+            </p>
+          </li>
+        </ul>
+      </List>
+      <div
+        className="widget-info"
+      >
+        Recent reported stolen bikes
+      </div>
+    </div>
+  </div>
+</StolenWidget>
+`;
+
+exports[`<StolenWidget /> shallow rendered matches the snapshot 1`] = `
+<div
+  id="stolen-widget"
+>
+  <form
+    className="topsearcher"
+    onSubmit={[Function]}
+  >
+    <input
+      disabled={true}
+      onChange={[Function]}
+      placeholder="Search for a serial number"
+      type="text"
+      value=""
+    />
+    <button
+      className="subm"
+      onClick={[Function]}
+      type="submit"
+    >
+      <img
+        alt="search"
+        src="test-file-stub"
+      />
+    </button>
+  </form>
+  <div
+    className="binxcontainer"
+    id="binx_list_container"
+  >
+    <Loading />
+  </div>
+</div>
+`;
