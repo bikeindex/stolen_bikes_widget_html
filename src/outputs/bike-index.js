@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import StolenWidget from '../components/StolenWidget';
 import { defaultElementId } from '../utility';
 
-export default class BikeIndex {
+export default class BikeIndexWidget {
   static el;
 
   static init(options) {
@@ -11,12 +11,12 @@ export default class BikeIndex {
     const widget = <StolenWidget {...rest} />;
 
     function doRender() {
-      if (BikeIndex.el) {
+      if (BikeIndexWidget.el) {
         throw new Error('BikeIndex is already mounted');
       }
       const el = document.getElementById(elementId);
       ReactDOM.render(widget, el);
-      BikeIndex.el = el;
+      BikeIndexWidget.el = el;
     }
     if (document.readyState === 'complete') {
       doRender();

@@ -13,7 +13,7 @@ All you need to do is include this HTML snippet where you would like the widget 
 And add this to the header of your page:
 
 ```html
-<script src="http://widget.bikeindex.org/stolen-widget.js"></script>
+<script src="https://widget.bikeindex.org/stolen-widget.js"></script>
 ```
 
 ### Extra options
@@ -37,7 +37,7 @@ Set the options when configuring the widget within the script tag:
 <!-- Override default options -->
 
 <script>
-  BikeIndex.init({
+  BikeIndexWidget.init({
     height: 400,
     cacheResults: true,
     recentResults: true,
@@ -51,7 +51,7 @@ Set the options when configuring the widget within the script tag:
 <!-- No options -->
 
 <script>
-  BikeIndex.init();
+  BikeIndexWidget.init();
 </script>
 ```
 

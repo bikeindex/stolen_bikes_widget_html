@@ -75,6 +75,7 @@ export default class StolenWidget extends Component {
     const {
       loading, serialNumber, searchToken, results, recentStolen,
     } = this.state;
+    const normalizedLocation = location === 'ip' ? 'you' : location;
     const noResults = !loading && results.length === 0 && (serialNumber || recentStolen);
     const maxHeight = (Number(height) || defaultHeight) - headerHeight;
 
@@ -113,7 +114,7 @@ export default class StolenWidget extends Component {
           {!loading && recentStolen && !noResults && (
             <div className="widget-info">
               Recent reported stolen bikes
-              {location && <span> near <em>{location}</em></span>}
+              {location && <span> near <em>{normalizedLocation}</em></span>}
             </div>
           )}
         </div>

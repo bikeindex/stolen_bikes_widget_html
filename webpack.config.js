@@ -60,7 +60,7 @@ module.exports = [{
     path: __dirname + '/dist',
     publicPath: '/',
     filename: 'stolen-widget.js',
-    library: 'BikeIndex',
+    library: 'BikeIndexWidget',
     libraryExport: 'default',
     libraryTarget: 'window',
   }
